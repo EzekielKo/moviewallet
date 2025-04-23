@@ -15,13 +15,13 @@ const TabIcon = ({focused, icon, title}: any) => {
                 <Text className="text-secondary text-base font-semibold ml-2">{title}</Text>
             </ImageBackground>
         )
-    } else {
-        return (
-            <View className="size-full justify-center items-center my-4 rounded-full">
-                <Image source={icon} tintColor="a8b5db" className="size-5"/>
-            </View>
-        )
-    }
+    } 
+    return (
+        <View className="size-full justify-center items-center mt-4 rounded-full">
+            <Image source={icon} tintColor="#a8b5db" className="size-5"/>
+        </View>
+    )
+    
 }
 
 const _Layout = () => {
@@ -32,7 +32,7 @@ const _Layout = () => {
             tabBarItemStyle: {
                 width: '100%',
                 height: '100%',
-                justifyContent: 'center',
+                justifyContent: "center",
                 alignItems: 'center'
             },
             tabBarStyle: {
