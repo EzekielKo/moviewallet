@@ -10,7 +10,6 @@ import MovieCard from "@/components/MovieCard";
 
 export default function Index() {
   const router = useRouter();
-
   const {
     data: movies, 
     loading: moviesLoading, 
@@ -44,7 +43,11 @@ export default function Index() {
               placeholder="Search for a movie"
             />
             <>
-              <Text className="text-lg text-white font-bold mt-5 mb-3">Latest Movies</Text>
+              <Text className="
+              text-lg text-white font-bold 
+              mt-5 mb-3">
+                Latest Movies
+              </Text>
             </>
             <FlatList 
               data={movies}
