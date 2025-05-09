@@ -7,13 +7,14 @@ import { useRouter } from 'expo-router'
 import useFetch from '@/services/useFetch'
 import { icons } from '@/constants/icons'
 import SearchBar from '@/components/SearchBar'
+import { loadOptions } from '@babel/core'
 
 const Search = () => {
   const router = useRouter();
   const {
     data: movies, 
-    loading: moviesLoading, 
-    error: moviesError
+    loading, 
+    error
   } = useFetch(() => fetchMovies({
     query: ''
   }))
@@ -40,12 +41,19 @@ const Search = () => {
               <SearchBar placeholder='Search movies...'/>
             </View>
 
-            {moviesLoading && (
+            {loading && (
               <ActivityIndicator size="large" color="#0000ff"/>
             )}
-            {moviesError && (
-              <Text className="text-red-500 px-5 my-3">Error: {moviesError.message}</Text>
+            {error && (
+              <Text className="text-red-500 px-5 my-3">Error: {error.message}</Text>
             )}
+            {!loading && !error && 'SEARCH TERM'.trim() && movies?.length > 0 && (
+              <Text className="text-xl text-white font-bold">
+                Search Results for{' '}
+                <Text className="text-accent">SEARCH TERM</Text>
+              </Text>
+            )
+            }
           </>
         }
       />
