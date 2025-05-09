@@ -1,5 +1,5 @@
 import { View, Text, Image, FlatList, ActivityIndicator } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { images } from '@/constants/images'
 import MovieCard from '@/components/MovieCard'
 import { fetchMovies } from '@/services/api'
@@ -10,10 +10,22 @@ import SearchBar from '@/components/SearchBar'
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const {
-    data: movies, loading, error
+    data: movies, loading, error, refetch: loadMovies, reset
   } = useFetch(() => fetchMovies({
     query: searchQuery
-  })/* false */)
+  }),false )
+
+  useEffect(() => {
+    const func = async () => {
+      if(searchQuery.trim()){
+        await loadMovies();
+      } else {
+        reset()
+      }
+    }
+    func();
+  }, [searchQuery])
+
   return (
     <View className="flex-1 bg-primary">
       <Image source={images.bg} className="flex-1 absolute w-full z-0" resizeMode="cover"/>
