@@ -5,6 +5,7 @@ import MovieCard from '@/components/MovieCard'
 import { fetchMovies } from '@/services/api'
 import { useRouter } from 'expo-router'
 import useFetch from '@/services/useFetch'
+import { icons } from '@/constants/icons'
 
 const Search = () => {
   const router = useRouter();
@@ -29,7 +30,13 @@ const Search = () => {
           marginVertical: 16
         }}
         contentContainerStyle={{paddingBottom: 100}}
-        
+        ListHeaderComponent={ // anything in this will be displayed at the top of the list
+          <>
+            <View className="w-full flex-row justify-center mt-20 items-center">
+              <Image source={icons.logo} className="w-12 h-10"/>
+            </View>
+          </>
+        }
       />
     </View>
   )
