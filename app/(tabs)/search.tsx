@@ -1,4 +1,4 @@
-import { View, Text, Image, FlatList } from 'react-native'
+import { View, Text, Image, FlatList, ActivityIndicator } from 'react-native'
 import React from 'react'
 import { images } from '@/constants/images'
 import MovieCard from '@/components/MovieCard'
@@ -6,6 +6,7 @@ import { fetchMovies } from '@/services/api'
 import { useRouter } from 'expo-router'
 import useFetch from '@/services/useFetch'
 import { icons } from '@/constants/icons'
+import SearchBar from '@/components/SearchBar'
 
 const Search = () => {
   const router = useRouter();
@@ -35,6 +36,16 @@ const Search = () => {
             <View className="w-full flex-row justify-center mt-20 items-center">
               <Image source={icons.logo} className="w-12 h-10"/>
             </View>
+            <View className="my-5">
+              <SearchBar placeholder='Search movies...'/>
+            </View>
+
+            {moviesLoading && (
+              <ActivityIndicator size="large" color="#0000ff"/>
+            )}
+            {moviesError && (
+              <Text className="text-red-500 px-5 my-3">Error: {moviesError.message}</Text>
+            )}
           </>
         }
       />
