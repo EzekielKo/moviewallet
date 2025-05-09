@@ -56,7 +56,7 @@ export default function Index() {
                   {...item}
                 />
               )}
-              keyExtractor={(item) => item.toString()}
+              keyExtractor={(item) => item.id.toString()}
               numColumns={3}
               columnWrapperStyle={{
                 justifyContent: 'flex-start',
