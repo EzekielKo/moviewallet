@@ -66,8 +66,7 @@ const Search = () => {
               <Text className="text-xl text-white font-bold">
                 Search Results for{' '}
                 <Text className="text-accent">{searchQuery}</Text>
-              </Text>
-            )
+              </Text>)
             }
           </>
         }
