@@ -62,6 +62,13 @@ export default function Index() {
               mt-5 mb-3">
                 Latest Movies
               </Text>
+              <FlatList 
+                className="mb-4 mt-3"
+                data={trendingMovies}
+                renderItem={({item, index}) => (
+                  <Text className="text-white text-sm">{item.title}</Text>
+                )}
+              />
             </>
             <FlatList 
               data={movies}
