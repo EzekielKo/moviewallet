@@ -68,6 +68,7 @@ export default function Index() {
                 renderItem={({item, index}) => (
                   <Text className="text-white text-sm">{item.title}</Text>
                 )}
+                keyExtractor={(item) => item.movie_id.toString()}
               />
             </>
             <FlatList 
