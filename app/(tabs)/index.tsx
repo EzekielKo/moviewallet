@@ -77,7 +77,7 @@ export default function Index() {
                 Latest Movies
               </Text>
             <FlatList 
-              data={movies.slice(0,9)}
+              data={movies?.slice(0,9)}
               renderItem={({item}) => (
                 <MovieCard
                   {...item}
