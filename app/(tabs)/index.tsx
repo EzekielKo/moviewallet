@@ -1,7 +1,6 @@
 import SearchBar from "@/components/SearchBar";
 import { icons } from "@/constants/icons";
 import {images} from "@/constants/images";
-import { Link } from "expo-router";
 import { Text, View, Image, ScrollView, ActivityIndicator, FlatList } from "react-native";
 import { useRouter } from 'expo-router'
 import useFetch from "@/services/useFetch";
@@ -78,7 +77,7 @@ export default function Index() {
                 Latest Movies
               </Text>
             <FlatList 
-              data={movies}
+              data={movies.slice(0,9)}
               renderItem={({item}) => (
                 <MovieCard
                   {...item}
@@ -97,7 +96,6 @@ export default function Index() {
             />
           </View>
         )}
-
       </ScrollView>
     </View>
   );
