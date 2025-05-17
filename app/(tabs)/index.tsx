@@ -34,7 +34,7 @@ export default function Index() {
         showsVerticalScrollIndicator={false} contentContainerStyle={{minHeight: "100%", paddingBottom: 10}}
       >
         <Image source={icons.logo} className="w-16 h-10 mt-20 mb-5 mx-auto"/>
-        <Text className="text-accent mx-auto font-bold text-[30px]">MovieWallet</Text>
+        <Text className="text-accent mx-auto font-bold text-[30px] mb-6">MovieWallet</Text>
 
         {moviesLoading || trendingLoading ? (
           <ActivityIndicator
