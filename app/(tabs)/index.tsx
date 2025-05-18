@@ -1,7 +1,6 @@
 import SearchBar from "@/components/SearchBar";
 import { icons } from "@/constants/icons";
 import {images} from "@/constants/images";
-import { Link } from "expo-router";
 import { Text, View, Image, ScrollView, ActivityIndicator, FlatList } from "react-native";
 import { useRouter } from 'expo-router'
 import useFetch from "@/services/useFetch";
@@ -34,7 +33,8 @@ export default function Index() {
         className="flex-1 px-5" 
         showsVerticalScrollIndicator={false} contentContainerStyle={{minHeight: "100%", paddingBottom: 10}}
       >
-        <Image source={icons.logo} className="w-12 h-10 mt-20 mb-5 mx-auto"/>
+        <Image source={icons.logo} className="w-16 h-10 mt-20 mb-5 mx-auto"/>
+        <Text className="text-accent mx-auto font-bold text-[30px] mb-6">MovieWallet</Text>
 
         {moviesLoading || trendingLoading ? (
           <ActivityIndicator
@@ -77,7 +77,7 @@ export default function Index() {
                 Latest Movies
               </Text>
             <FlatList 
-              data={movies}
+              data={movies?.slice(0,9)}
               renderItem={({item}) => (
                 <MovieCard
                   {...item}
@@ -96,7 +96,6 @@ export default function Index() {
             />
           </View>
         )}
-
       </ScrollView>
     </View>
   );
